@@ -46,8 +46,7 @@ above2std = df[(df['Runtime (Minutes)']) > 150]
 print(above2std)
 maxvotes = df_cleaned.loc[df_cleaned.groupby('Genre')['Votes'].idxmax()]
 print(maxvotes.sort_values('Votes',ascending=False)[['Genre','Title','Votes']])
-# df['Runtime (Minutes)'] = df['Runtime (Minutes)'].str.replace('min', '')
-# this would be the code to replace string with integers, but there are no string in the column runtime
+df['Runtime (Minutes)'] = df['Runtime (Minutes)'].str.replace('min', '') <----- this would be the code to replace string with integers, but there are no string in the column runtime
 df['Runtime (Minutes)'] = df['Runtime (Minutes)'].astype(int) 
 df.groupby("Votes")["Rating"].agg(["mean", "median", "std"])
 #there isn't anything that says certificate
